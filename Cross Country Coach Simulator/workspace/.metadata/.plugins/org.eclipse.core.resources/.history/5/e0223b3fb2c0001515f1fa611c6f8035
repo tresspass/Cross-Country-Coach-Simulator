@@ -1,0 +1,87 @@
+package coachsimulator;
+import java.util.Timer;
+public class Loop {
+
+
+	private java.util.Timer timer;
+	private boolean isRunning;
+
+	public void gameLoop() {
+		long lastLoopTime = SystemTimer.getTime();
+		
+		// keep looping round til the game ends
+
+		while (gameRunning) {
+			// work out how long its been since the last update, this
+
+			// will be used to calculate how far the entities should
+
+			// move this loop
+
+			long delta = SystemTimer.getTime() - lastLoopTime;
+			lastLoopTime = SystemTimer.getTime();
+
+			// update the frame counter
+
+			lastFpsTime += delta;
+			fps++;
+			
+			// update our FPS counter if a second has passed since
+
+			// we last recorded
+
+			if (lastFpsTime >= 1000) {
+				container.setTitle(windowTitle+" (FPS: "+fps+")");
+				lastFpsTime = 0;
+				fps = 0;
+			}
+			
+			// Get hold of a graphics context for the accelerated 
+
+			// surface and blank it out
+
+			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
+			g.setColor(Color.black);
+			g.fillRect(0,0,800,600);
+			
+			// cycle round asking each entity to move itself
+
+			if (!waitingForKeyPress) {
+				for (int i=0;i<entities.size();i++) {
+					Entity entity = (Entity) entities.get(i);
+					
+					entity.move(delta);
+				}
+			}
+			
+			// cycle round drawing all the entities we have in the game
+
+			for (int i=0;i<entities.size();i++) {
+				Entity entity = (Entity) entities.get(i);
+				
+				entity.draw(g);
+			}
+			
+			// brute force collisions, compare every entity against
+
+			// every other entity. If any of them collide notify 
+
+			// both entities that the collision has occured
+
+			for (int p=0;p<entities.size();p++) {
+				for (int s=p+1;s<entities.size();s++) {
+					Entity me = (Entity) entities.get(p);
+					Entity him = (Entity) entities.get(s);
+					
+					if (me.collidesWith(him)) {
+						me.collidedWith(him);
+						him.collidedWith(me);
+					}
+				}
+			}
+
+			
+			SystemTimer.sleep(lastLoopTime+10-SystemTimer.getTime());
+		}
+	}
+}

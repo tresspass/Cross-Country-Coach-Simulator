@@ -1,0 +1,33 @@
+package coachsimulator;
+
+import java.util.Timer;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+	}
+	
+	private java.util.Timer timer;
+	private boolean isRunning;
+
+	public void gameLoop()
+	{
+	    timer = new Timer();
+	    timer.schedule(new Loop(), 0, 1000 / 60);
+	}
+
+	private class Loop extends java.util.TimerTask
+	{
+	    public void run()
+	    {
+	        doGameUpdates();
+	        render();
+
+	        if (!isRunning)
+	        {
+	            timer.cancel();
+	        }
+	    }
+	}
+}

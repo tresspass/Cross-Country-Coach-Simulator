@@ -1,0 +1,14 @@
+package coachsimulator;
+
+import javax.swing.JFrame;
+//Main game starter
+public class Main {
+
+	public static void main(String[] args) {
+		
+		
+		Loop gl = new Loop();
+		gl.runGameLoop();
+	}
+	
+}

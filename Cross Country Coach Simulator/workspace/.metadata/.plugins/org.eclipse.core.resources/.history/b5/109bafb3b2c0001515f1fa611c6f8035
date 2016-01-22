@@ -1,0 +1,26 @@
+package coachsimulator;
+import java.util.Timer;
+public class Loop {
+
+
+	public void gameLoop() {
+		long lastLoopTime = SystemTimer.getTime();
+		
+		while (gameRunning) {
+
+			long delta = SystemTimer.getTime() - lastLoopTime;
+			lastLoopTime = SystemTimer.getTime();
+
+			lastFpsTime += delta;
+			fps++;
+			
+			if (lastFpsTime >= 1000) {
+				container.setTitle(windowTitle+" (FPS: "+fps+")");
+				lastFpsTime = 0;
+				fps = 0;
+			}
+			
+			SystemTimer.sleep(lastLoopTime+10-SystemTimer.getTime());
+		}
+	}
+}
