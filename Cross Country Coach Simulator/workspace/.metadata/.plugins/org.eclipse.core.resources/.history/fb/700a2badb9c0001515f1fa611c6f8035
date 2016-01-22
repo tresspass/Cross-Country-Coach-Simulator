@@ -1,0 +1,17 @@
+package coachsimulator;
+
+import javax.swing.JButton;
+
+public class GameIntro {
+	public GameIntro(){
+		Window w = new Window();
+		
+		JButton start = new JButton("Start");
+		JButton options = new JButton("Options");
+		JButton quit = new JButton("Quit");
+
+		w.add(start );
+		w.add(options);
+		w.add(quit);
+	}
+}

@@ -1,0 +1,13 @@
+package coachsimulator;
+
+//Main game starter
+public class Main {
+
+	public static void main(String[] args) {
+		
+		//Starting Loop
+		Loop gl = new Loop();
+		gl.runGameLoop();
+	}
+	
+}

@@ -1,0 +1,18 @@
+package coachsimulator;
+
+class Loop extends java.util.TimerTask
+{
+	private boolean isRunning;
+
+    public void run()
+    {
+        doGameUpdates();
+        render();
+
+        if (!isRunning)
+        {
+            Main.timer.cancel();
+        }
+    }
+}
+
