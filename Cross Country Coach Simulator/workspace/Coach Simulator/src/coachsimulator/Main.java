@@ -1,0 +1,14 @@
+package coachsimulator;
+
+import java.awt.Container;
+
+//Main game starter
+public class Main {
+
+	public static void main(String[] args){
+		//starting window
+		Window w = new Window();
+		w.setVisible(true);
+		//Init game
+	}
+}

@@ -1,0 +1,10 @@
+package coachsimulator;
+
+import javax.swing.JButton;
+
+public class GameIntro {
+	public GameIntro(){
+		Window w = new Window();
+		
+	}
+}

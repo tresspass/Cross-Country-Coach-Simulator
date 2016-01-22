@@ -1,0 +1,7 @@
+package coachsimulator;
+
+public class GameIntro {
+	public GameIntro(){
+		Window w = new Window();
+	}
+}
