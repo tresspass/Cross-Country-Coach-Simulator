@@ -1,0 +1,38 @@
+package coachsimulator;
+
+import java.util.Timer;
+
+import javax.swing.JFrame;
+//Main game starter
+public class Main {
+
+	public static void main(String[] args) {
+		JFrame frame = new JFrame("Mini Tennis");
+		frame.setSize(300, 300);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	private java.util.Timer timer;
+	private boolean isRunning;
+
+	public void gameLoop()
+	{
+	    timer = new Timer();
+	    timer.schedule(new Loop(), 0, 1000 / 60);
+	}
+
+	private class Loop extends java.util.TimerTask
+	{
+	    public void run()
+	    {
+	        Game.update();
+	        Game.render();
+
+	        if (!isRunning)
+	        {
+	            timer.cancel();
+	        }
+	    }
+	}
+}

@@ -1,0 +1,17 @@
+package coachsimulator;
+
+//Main game organizer
+public class Game {
+	
+	public static void init() {
+		
+	}
+	
+	public static void update() {
+		System.out.println("foo");
+	}
+
+	public static void render() {
+		
+	}
+}

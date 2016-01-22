@@ -1,0 +1,10 @@
+package coachsimulator;
+
+public class GameIntro {
+	public GameIntro(){
+		Window w = new Window();
+		w.add(start);
+		w.add(options);
+		w.add(quit);
+	}
+}

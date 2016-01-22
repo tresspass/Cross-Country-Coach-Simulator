@@ -1,0 +1,22 @@
+package coachsimulator;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Ellipse2D;
+
+//Main game organizer
+public class Game {
+	
+	public static void init() {
+		
+	}
+	
+	public static void update() {
+		
+	}
+
+	public static void render() {
+		
+	}
+}
