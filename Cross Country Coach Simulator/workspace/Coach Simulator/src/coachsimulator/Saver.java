@@ -11,11 +11,15 @@ public class Saver(){
     fileDir = new File(path);
     if(!file.exists){
       createDir();
+      String data = getData();
+      write(data);
     }else if(file.exists){
       if(file.exists){
-        
+        String data = getData();
+        write();
       }
     }else{
+      throw new Error("Path unreachable");
       return;
     }
   }
